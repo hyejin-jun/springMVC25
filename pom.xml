@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.zerock</groupId>
-	<artifactId>controller</artifactId>
-	<name>ex01</name>
+	<groupId>org.mbc</groupId>
+	<artifactId>board</artifactId>
+	<name>MBCBoard</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -23,7 +24,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				</exclusion>
+				 </exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -31,22 +32,22 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
-		<dependency>
+				
+			<dependency>
 			<!-- 위에 있는 webmvc를 복사해서 test로 변경 -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+				
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>
-
-		<!-- Logging  보안 이슈로 버전 향상 해야 됨
+		</dependency>	
+		
+		<!-- Logging 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -63,8 +64,7 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
-		</dependency>-->
-		<!--
+		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -88,9 +88,8 @@
 				</exclusion>
 			</exclusions>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency>-->
 		
-		-->
 		<dependency>
 			<!-- 보안 이슈로 log4j2로 향상 -->
 			<groupId>org.apache.logging.log4j</groupId>
@@ -115,39 +114,47 @@
 			<version>1</version>
 		</dependency>
 
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+				
 		<!-- Servlet 
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
-		</dependency> 서블릿 버젼 향상-->
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		</dependency>-->
 		<dependency> <!-- p111 서블릿 버전향상 프론트+컨트롤러 -->
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency><!-- taglib용 코드 기본 내장 c:out -->
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+	
 		<!-- Test -->
 		<dependency>
-			<groupId>junit</groupId> <!-- 메서드 단위로 테스트 -->
+			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version> <!-- 4.7에서 4.12버전으로 향상-->
+			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>  
+		
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok 롬북 추가 코드 -->
 		<dependency>
 			<!-- dto 객체 처리용 게터,세터,toString,equals,생성자 등....-->
@@ -155,23 +162,29 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.38</version>
 		</dependency>
-
+		
 		<!-- ojdbc연결용 드라이버 추가 https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>23.2.0.0</version>
 		</dependency>
-
-
-		<!-- 커넥션풀용 코드 추가 p83 https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		
+		<!-- ojdbc연결용 드라이버 추가 https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>23.2.0.0</version>
+		</dependency>
+		
+			<!-- 커넥션풀용 코드 추가 p83 https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 			<version>2.7.4</version>
 		</dependency>
-
-		<!-- root-context.xml 에 삽입
+		
+	<!-- root-context.xml 에 삽입
 		 
 		<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	
@@ -216,19 +229,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
-
-		<!-- root-context.xml 코드 변경  
-		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-			<property name="dataSource" ref="dataSource"></property>
-		</bean>
-	
-		<mybatis-spring:scan base-package="org.zerock.mapper"/>
-		org.zerock.mapper -> 매핑용 인터페이스 위치  
-		sql처리를 mapper에서 찾는다.  -> 인터페이스 + xml로 sql 처리함.
-				
-		-->
-
+		</dependency>	
 		<!-- 로그출력을 표형식으로 구현 https://mvnrepository.com/artifact/org.bgee.jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
@@ -242,43 +243,45 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.4</version>
 		</dependency>
-	</dependencies> <!-- 의존성 주입 종료 -->
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<additionalProjectnatures>
-						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-					</additionalProjectnatures>
-					<additionalBuildcommands>
-						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-					</additionalBuildcommands>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version> <!-- 2.5.1 에서 향상-->
-				<configuration>
-					<source>11</source> <!-- 1.6 에서 향상-->
-					<target>11</target> <!-- 1.6 에서 향상-->
-					<compilerArgument>-Xlint:all</compilerArgument>
-					<showWarnings>true</showWarnings>
-					<showDeprecation>true</showDeprecation>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<configuration>
-					<mainClass>org.test.int1.Main</mainClass>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+		      
+	</dependencies><!-- 의존성 주입 종료 -->
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
