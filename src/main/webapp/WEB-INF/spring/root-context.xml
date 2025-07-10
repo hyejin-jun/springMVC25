@@ -12,16 +12,15 @@
 
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
-		<!-- <property name="driverClassName"
+		<!-- log4jdbc용으로 튜닝 -> 콘솔에서 결과를 표형식으로 볼 수 있게 설정 
+		<property name="driverClassName"
 			value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="jdbcUrl"
-			value="jdbc:oracle:thin:@192.168.111.104:1521:XE"></property> --> <!-- log4jdbc용으로 튜닝 > 콘솔에서 결과를 표형식으로 스캔 -->
-			
-		<!-- p.102 변경 / pstmt의 ?를 볼 수 있게 변경 -->
+			value="jdbc:oracle:thin:@192.168.111.104:1521:XE"></property> -->
+		
+		<!-- p102에 변경 pstmt의 ?를 볼 수 있게 변경 -->	
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property> 
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.111.104:1521:XE"></property> 
-		
-			
 
 		<property name="username" value="book_ex"></property>
 		<property name="password" value="book_ex"></property>
@@ -32,16 +31,16 @@
 		destroy-method="close">
 		<constructor-arg ref="hikariConfig" />
 	</bean>
-	
-	<!-- pstmt 대체용 코드 마이바티스트로 sql 문을 매핑 (p.91) -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-			<property name="dataSource" ref="dataSource"></property>
-		</bean>
-	
-		<!-- <mybatis-spring:scan base-package="org.zerock.mapper"/> -->
 
-	<mybatis-spring:scan base-package="org.zerock.mapper"/><!-- sql문이 들어있는 매핑용 인터페이스나 xml을 검색하는 용도  -->
+	<!-- pstmt 대체용 코드 마이바티스로 sql 문을 매핑 p91 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- sql문이 들어 있는 매핑용 인터페이스나 xml를 검색하는 용도 -->
+	<mybatis-spring:scan base-package="org.zerock.mapper"/> <!-- sql쿼리문을 관리하는 xml과 인터페이스를 매핑하는 패키지를 스캔 -->
+	
 	<context:component-scan
 		base-package="org.zerock.sample"></context:component-scan>
-		
 </beans>

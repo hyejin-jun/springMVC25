@@ -46,8 +46,8 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>
 
-		<!-- Logging -->
-		<!-- <dependency>
+		<!-- Logging  보안 이슈로 버전 향상 해야 됨
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j-version}</version>
@@ -63,9 +63,8 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
-		</dependency> -->
-		
-		<!-- 보안 이슈로 버전 향상 해야 됨
+		</dependency>-->
+		<!--
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -117,12 +116,21 @@
 		</dependency>
 
 		<!-- Servlet -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
+		</dependency> 서블릿 버전 향상 -->
+				
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency> <!-- p. 111 서블릿 버전 향상 프론트 + 컨트롤러용 -->
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.1.0</version>
+		    <scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -136,7 +144,7 @@
 		</dependency>
 
 		<!-- Test -->
-		<dependency>
+		<dependency> <!-- 메서드 단위로 테스트 -->
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version> <!-- 4.7에서 4.12버전으로 향상-->
@@ -145,7 +153,7 @@
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok 롬북 추가 코드 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
+			<artifactId>lombok</artifactId> <!-- DTO 객체 처리용 (게터, 세터, toString, equals, 생성자 등) -->
 			<version>1.18.38</version>
 		</dependency>
 
@@ -229,6 +237,13 @@
 			<version>1.16</version>
 		</dependency>
 		
+		<!-- 프론트 결과를 json 타입으로 보이게 설정: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.9.4</version>
+		</dependency>
+		
 	</dependencies> <!-- 의존성 주입 종료 -->
 	<build>
 		<plugins>
@@ -249,10 +264,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.5.1</version> <!-- 2.5.1에서 향상 -->
 				<configuration>
-					<source>11</source>
-					<target>11</target>
+					<source>11</source> <!-- 1.6에서 향상 -->
+					<target>11</target> <!-- 1.6에서 향상 -->
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
