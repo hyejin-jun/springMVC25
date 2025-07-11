@@ -32,8 +32,8 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
-		<dependency>
+				
+			<dependency>
 			<!-- 위에 있는 webmvc를 복사해서 test로 변경 -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -88,7 +88,7 @@
 				</exclusion>
 			</exclusions>
 			<scope>runtime</scope>
-		</dependency> -->
+		</dependency>-->
 		
 		<dependency>
 			<!-- 보안 이슈로 log4j2로 향상 -->
@@ -107,6 +107,12 @@
 			<version>2.18.0</version>
 		</dependency> <!-- 보안 이슈로 log4j2로 향상 -->
 
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
 
 		<!-- @Inject -->
 		<dependency>
@@ -122,8 +128,6 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>-->
-		
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency> <!-- p111 서블릿 버전향상 프론트+컨트롤러 -->
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -149,7 +153,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>  
 		
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok 롬북 추가 코드 -->
 		<dependency>
@@ -158,23 +162,29 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.38</version>
 		</dependency>
-
+		
 		<!-- ojdbc연결용 드라이버 추가 https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>23.2.0.0</version>
 		</dependency>
-
-
-		<!-- 커넥션풀용 코드 추가 p83 https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		
+		<!-- ojdbc연결용 드라이버 추가 https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>23.2.0.0</version>
+		</dependency>
+		
+			<!-- 커넥션풀용 코드 추가 p83 https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 			<version>2.7.4</version>
 		</dependency>
-
-		<!-- root-context.xml 에 삽입
+		
+	<!-- root-context.xml 에 삽입
 		 
 		<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	
@@ -219,19 +229,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
-
-		<!-- root-context.xml 코드 변경  
-		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-			<property name="dataSource" ref="dataSource"></property>
-		</bean>
-	
-		<mybatis-spring:scan base-package="org.zerock.mapper"/>
-		org.zerock.mapper -> 매핑용 인터페이스 위치  
-		sql처리를 mapper에서 찾는다.  -> 인터페이스 + xml로 sql 처리함.
-				
-		-->
-
+		</dependency>	
 		<!-- 로그출력을 표형식으로 구현 https://mvnrepository.com/artifact/org.bgee.jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
@@ -245,8 +243,9 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.4</version>
 		</dependency>
-		        
-	</dependencies>
+		      
+	</dependencies><!-- 의존성 주입 종료 -->
+
     <build>
         <plugins>
             <plugin>
@@ -266,10 +265,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>2.5.1</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>

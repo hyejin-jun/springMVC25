@@ -6,9 +6,7 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- 스프링에서 관리해야 하는 도메인을 지정한다. dto, dao 관리(service계층) -->
-
-	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
 		<!-- log4jdbc용으로 튜닝 -> 콘솔에서 결과를 표형식으로 볼 수 있게 설정 
 		<property name="driverClassName"
@@ -35,8 +33,10 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-
+	
+	
 	<!-- sql문이 들어 있는 매핑용 인터페이스나 xml를 검색하는 용도 -->
-	<mybatis-spring:scan base-package="org.mbc.mapper"/>
+	<mybatis-spring:scan base-package="org.mbc.board"/>
 	<!-- sql쿼리문을 관리하는 xml과 인터페이스를 매핑하는 패키지를 스캔한다.  -->
+	
 </beans>
