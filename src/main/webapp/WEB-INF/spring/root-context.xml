@@ -42,6 +42,9 @@
 	<mybatis-spring:scan base-package="org.mbc.mapper"/>
 	<!-- sql쿼리문을 관리하는 xml과 인터페이스를 매핑하는 패키지를 스캔한다.  -->
 	
-	<!-- 스프링이 관련하는 서비스 계층을 명시하자 (필수) -->
-	<context:component-scan base-package="org.mbc.service"/> <!-- 아이콘에 S가 붙는다 (스프링에 관여) -->
+	
+	<!-- 스프링이 관련하는 서비스 계층을 명시하자. (필수) -> 아이콘에 작은 s가 붙는다. -->
+	<context:component-scan base-package="org.mbc.service"/>
+	
+	
 </beans>
